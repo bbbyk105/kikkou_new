@@ -1,103 +1,83 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import React, { memo } from "react";
+import dynamic from "next/dynamic";
+import { IMAGES } from "@/constants/navigation";
+
+// 重いコンポーネントを遅延読み込み
+
+const ActionButtons = dynamic(() => import("../components/ActionButtons"), {
+  ssr: false,
+});
+
+const Hero = dynamic(() => import("@/components/Hero"));
+const Value = dynamic(() => import("@/components/Value"));
+const SetupOffice = dynamic(() => import("@/components/SetUp"));
+
+// Valueコンポーネントをメモ化
+const MemoizedValue = memo(Value);
+
+export default function Page() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="min-h-screen bg-white">
+      <Hero />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      <MemoizedValue
+        id="corporate-image"
+        valueNumber="01"
+        title="Community\nFirst"
+        subtitle="誰でも利用できるスペース"
+        description="年齢・職業を問わず誰でも集まり、学び・交流できる地域ハブをつくる。高齢者の憩い、起業家・趣味サークルの場として活用。"
+        imageSrc={IMAGES.corporateImage}
+        imageAlt="Modern office building entrance with professional atmosphere - プロフェッショナルな雰囲気のモダンオフィスビル入口"
+      />
+
+      <SetupOffice />
+
+      <MemoizedValue
+        id="facility"
+        valueNumber="02"
+        title="Facility\nEnvironment"
+        subtitle="設備と環境"
+        description="多様なワークスペースと高品質な設備が整った環境で、快適に業務を進められます。高速インターネット、プリンター、専用デスクなど、ニーズに応じたオプションが豊富に揃っています。"
+        imageSrc={IMAGES.security}
+        imageAlt="Secure office building entrance with modern security systems - モダンなセキュリティシステムを備えた安全なオフィスビル入口"
+      />
+
+      <MemoizedValue
+        id="motivation"
+        valueNumber="03"
+        title="Motivation\nEnhancement"
+        subtitle="モチベーション向上"
+        description="集中できる作業環境が整っているだけでなく、同じような目標を持つ人たちが集まっていることで、互いにモチベーションを高め合うことができ、生産性が向上します。"
+        imageSrc={IMAGES.motivation}
+        imageAlt="Business professional in modern office environment - モダンなオフィス環境のビジネスプロフェッショナル"
+        className="bg-gray-100"
+      />
+
+      <MemoizedValue
+        id="recruitment"
+        valueNumber="04"
+        title="Versatility"
+        subtitle="多用途性"
+        description="多様な活動をサポートする環境が整っています。ヨガやリラックスできる休憩時間、イベントなど、自由に使えるスペースが提供され、心身ともにリフレッシュできます。"
+        imageSrc={IMAGES.recruitment}
+        imageAlt="Modern office workspace with collaborative environment - コラボレーション環境を備えたモダンなオフィスワークスペース"
+        reversed={true}
+        darkTheme={true}
+      />
+
+      <MemoizedValue
+        id="final-corporate"
+        valueNumber="05"
+        title="Flexibility"
+        subtitle="柔軟性"
+        description="利用者は自分のペースで働けるだけでなく、スペースを必要に応じて予約したり、時間単位で利用したりできるため、自由度が高く、コストを効率的に管理できます。"
+        imageSrc={IMAGES.finalCorporate}
+        imageAlt="Professional office environment showcasing corporate excellence - 企業の優秀性を示すプロフェッショナルなオフィス環境"
+      />
+
+      <ActionButtons />
     </div>
   );
 }
