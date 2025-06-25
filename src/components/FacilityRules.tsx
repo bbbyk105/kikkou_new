@@ -127,10 +127,6 @@ const FacilityRules: React.FC = () => {
               <div className="text-sm text-gray-500 mb-1">営業時間</div>
               <div className="font-medium text-gray-800">平日 7:00-22:00</div>
             </div>
-            <div className="text-center">
-              <div className="text-sm text-gray-500 mb-1">緊急連絡先</div>
-              <div className="font-medium text-gray-800">24時間対応</div>
-            </div>
           </div>
         </motion.div>
       </div>

@@ -17,7 +17,7 @@ const ScrollImageSwitcher = dynamic(
   }
 );
 
-const SetupOffice = dynamic(() => import("@/components/SetUp"));
+const FAQ = dynamic(() => import("@/components/FAQ"));
 
 export default function Page() {
   return (
@@ -30,7 +30,7 @@ export default function Page() {
         className="bg-white"
       />
 
-      <SetupOffice />
+      <FAQ />
 
       <ActionButtons />
     </div>

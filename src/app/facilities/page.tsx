@@ -11,7 +11,6 @@ const FacilityScrollSwitcher = dynamic(
     ssr: false,
   }
 );
-const SetupOffice = dynamic(() => import("@/components/SetUp"));
 const Pricing = dynamic(() => import("@/components/Pricing"));
 const FacilityRules = dynamic(() => import("@/components/FacilityRules"));
 
@@ -59,9 +58,6 @@ export default function FacilitiesPage() {
       />
 
       <main className="min-h-screen bg-white">
-        {/* ヒーローセクション */}
-        <SetupOffice />
-
         {/* 施設詳細セクション（スクロール連動） */}
         <FacilityScrollSwitcher
           sections={FACILITY_SECTIONS}
