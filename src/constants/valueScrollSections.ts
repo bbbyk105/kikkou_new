@@ -27,18 +27,6 @@ export const VALUE_SCROLL_SECTIONS = [
     darkTheme: false,
   },
   {
-    id: "motivation-enhancement",
-    title: "Motivation\nEnhancement",
-    subtitle: "モチベーション向上",
-    description:
-      "集中できる作業環境が整っているだけでなく、同じような目標を持つ人たちが集まっていることで、互いにモチベーションを高め合うことができ、生産性が向上します。",
-    imageSrc: IMAGES.motivation,
-    imageAlt:
-      "Business professional in modern office environment - モダンなオフィス環境のビジネスプロフェッショナル",
-    reversed: false,
-    darkTheme: false,
-  },
-  {
     id: "versatility",
     title: "Versatility",
     subtitle: "多用途性",
@@ -49,17 +37,5 @@ export const VALUE_SCROLL_SECTIONS = [
       "Modern office workspace with collaborative environment - コラボレーション環境を備えたモダンなオフィスワークスペース",
     reversed: true,
     darkTheme: true,
-  },
-  {
-    id: "flexibility",
-    title: "Flexibility",
-    subtitle: "柔軟性",
-    description:
-      "利用者は自分のペースで働けるだけでなく、スペースを必要に応じて予約したり、時間単位で利用したりできるため、自由度が高く、コストを効率的に管理できます。",
-    imageSrc: IMAGES.finalCorporate,
-    imageAlt:
-      "Professional office environment showcasing corporate excellence - 企業の優秀性を示すプロフェッショナルなオフィス環境",
-    reversed: false,
-    darkTheme: false,
   },
 ];

@@ -118,18 +118,6 @@ export default function SetupOffice() {
               </div>
             </div>
           </div>
-
-          {/* CTA Button */}
-          <button
-            className="flex items-center text-white text-sm mx-auto hover:text-gray-300 transition-colors group focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-400"
-            aria-label="コワーキングスペースの詳細を見る"
-          >
-            <span
-              className="w-8 h-px bg-white mr-3 group-hover:w-12 transition-all duration-300"
-              aria-hidden="true"
-            ></span>
-            コワーキングスペースを見る
-          </button>
         </div>
       </div>
     </section>

@@ -10,9 +10,14 @@ const ActionButtons = dynamic(() => import("../components/ActionButtons"), {
 });
 
 const Hero = dynamic(() => import("@/components/Hero"));
-const SetupOffice = dynamic(() => import("@/components/SetUp"));
 const ScrollImageSwitcher = dynamic(
   () => import("@/components/ScrollImageSwitcher"),
+  {
+    ssr: false,
+  }
+);
+const HorizontalScrollCards = dynamic(
+  () => import("@/components/HorizontalScrollCards"),
   {
     ssr: false,
   }
@@ -22,12 +27,16 @@ export default function Page() {
   return (
     <div className="min-h-screen bg-white">
       <Hero />
+
       {/* 全ての Value セクション（01〜05）をスクロール連動コンポーネントで表示 */}
       <ScrollImageSwitcher
         sections={VALUE_SCROLL_SECTIONS}
         className="bg-white"
       />
-      <SetupOffice />
+
+      {/* 新しい横スクロールカードセクション */}
+      <HorizontalScrollCards />
+
       <ActionButtons />
     </div>
   );
