@@ -16,12 +16,8 @@ const ScrollImageSwitcher = dynamic(
     ssr: false,
   }
 );
-const HorizontalScrollCards = dynamic(
-  () => import("@/components/HorizontalScrollCards"),
-  {
-    ssr: false,
-  }
-);
+
+const SetupOffice = dynamic(() => import("@/components/SetUp"));
 
 export default function Page() {
   return (
@@ -34,8 +30,7 @@ export default function Page() {
         className="bg-white"
       />
 
-      {/* 新しい横スクロールカードセクション */}
-      <HorizontalScrollCards />
+      <SetupOffice />
 
       <ActionButtons />
     </div>
